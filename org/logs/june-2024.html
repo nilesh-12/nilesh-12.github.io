@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-06-25 Tue 12:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgabbd5d3">1. June 2024</a>
+<ul>
+<li><a href="#orgeca1199">1.1. 2024.06.01</a></li>
+<li><a href="#org66799be">1.2. 2024.06.02</a></li>
+<li><a href="#orgb57f889">1.3. 2024.06.03</a></li>
+<li><a href="#org4adbc76">1.4. 2024.06.04</a></li>
+<li><a href="#org9809c98">1.5. 2024.06.05</a></li>
+<li><a href="#org13df270">1.6. 2024.06.06</a></li>
+<li><a href="#orgab55f50">1.7. 2024.06.07</a></li>
+<li><a href="#org8eb34e1">1.8. 2024.06.08</a></li>
+<li><a href="#orgbc07168">1.9. 2024.06.09</a></li>
+<li><a href="#org100c8cc">1.10. 2024.06.10</a></li>
+<li><a href="#org4c2f64a">1.11. 2024.06.11</a></li>
+<li><a href="#org50f219f">1.12. 2024.06.12</a></li>
+<li><a href="#org72baa6f">1.13. 2024.06.13 - 2024.06.14</a></li>
+<li><a href="#org14c1214">1.14. 2024.06.15</a></li>
+<li><a href="#org3606a59">1.15. 16</a></li>
+<li><a href="#orgbe2ee9d">1.16. 2024.06.17</a></li>
+<li><a href="#org390b927">1.17. 2024.06.18</a></li>
+<li><a href="#org2f276b2">1.18. 2024.06.19</a></li>
+<li><a href="#orge27eeb7">1.19. 2024.06.20</a></li>
+<li><a href="#org2517593">1.20. 2024.06.21</a></li>
+<li><a href="#orgbab6c3b">1.21. 2024.06.22</a></li>
+<li><a href="#orgfdfec4a">1.22. 2024.06.23</a></li>
+<li><a href="#org3c0458f">1.23. 2024.06.24</a></li>
+<li><a href="#org8d25943">1.24. 2024.06.25</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgabbd5d3" class="outline-2">
+<h2 id="orgabbd5d3"><span class="section-number-2">1.</span> June 2024</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgeca1199" class="outline-3">
+<h3 id="orgeca1199"><span class="section-number-3">1.1.</span> 2024.06.01</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+10h
+QMS UI
+  Heavy refactoring of Styling
+  Sizing of query description and their time
+  Sizing of comment and their time
+  Spacing of each list item
+  Appbar and refetch button
+QMS State
+  Fetching all queries in 5 seconds interval
+QMS API Testing
+  Default order of queries list
+  Default order of comment list
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org66799be" class="outline-3">
+<h3 id="org66799be"><span class="section-number-3">1.2.</span> 2024.06.02</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+0
+Day Off
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb57f889" class="outline-3">
+<h3 id="orgb57f889"><span class="section-number-3">1.3.</span> 2024.06.03</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+5h
+Deployment QMS on UAT
+  Pull Request
+  Code review
+Lead Validation Error UI Design
+  Discussion with Jugal sir
+  Component design for group of errors
+Research - PDF creation tools (DocRaptor)
+  Generate API
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4adbc76" class="outline-3">
+<h3 id="org4adbc76"><span class="section-number-3">1.4.</span> 2024.06.04</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+7h
+CAM Letter - Template Creation in html
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9809c98" class="outline-3">
+<h3 id="org9809c98"><span class="section-number-3">1.5.</span> 2024.06.05</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+7h
+Micro App - PDF Generator
+  weasyprint (html to pdf)
+  html templating (Flask-&gt;Jinja)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org13df270" class="outline-3">
+<h3 id="org13df270"><span class="section-number-3">1.6.</span> 2024.06.06</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+0h
+Micro App - PDF Generator
+  generate API to render pdf using json data based on template
+  test scripts to check section &amp; paragraph in PDF
+  test scripts to check table in PDF
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgab55f50" class="outline-3">
+<h3 id="orgab55f50"><span class="section-number-3">1.7.</span> 2024.06.07</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+0h
+Micro App - PDF Generator
+  upload API for template to be dynamic
+  test scripts to pass custom css in json payload of generate api
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8eb34e1" class="outline-3">
+<h3 id="org8eb34e1"><span class="section-number-3">1.8.</span> 2024.06.08</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+0h
+Day Off
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbc07168" class="outline-3">
+<h3 id="orgbc07168"><span class="section-number-3">1.9.</span> 2024.06.09</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+0h
+Day Off
+</p>
+</div>
+</div>
+
+<div id="outline-container-org100c8cc" class="outline-3">
+<h3 id="org100c8cc"><span class="section-number-3">1.10.</span> 2024.06.10</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+7.52 hours
+Deployment DOP on UAT (with dharati)
+  Pull Request
+  Code Review of DOP
+  Note changes for Future Refactoring
+Online meeting with KS - discuss points from mail.
+Research: Password-protection, how? (unlogged)
+  Which packages to use?
+  What's the algorithm using pypdf2?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c2f64a" class="outline-3">
+<h3 id="org4c2f64a"><span class="section-number-3">1.11.</span> 2024.06.11</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+7h
+Deployment on Production
+version-&gt;3.06.10.1
+git-related
+  Pull Request
+  Code Review of QMS/DOP
+  Code cleanup
+  Merge code and build code
+  Deploy on server
+</p>
+</div>
+</div>
+
+<div id="outline-container-org50f219f" class="outline-3">
+<h3 id="org50f219f"><span class="section-number-3">1.12.</span> 2024.06.12</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+7.54 hours
+1h Brainstorm steps
+0.5h Create new Issue: #2037
+  branch: 2037-common-header-details
+0.5h Time log
+4h password protected pdf generate - researching methods
+2h testing templates with password
+</p>
+</div>
+</div>
+
+<div id="outline-container-org72baa6f" class="outline-3">
+<h3 id="org72baa6f"><span class="section-number-3">1.13.</span> 2024.06.13 - 2024.06.14</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+0h
+On leave, out of station
+</p>
+</div>
+</div>
+
+<div id="outline-container-org14c1214" class="outline-3">
+<h3 id="org14c1214"><span class="section-number-3">1.14.</span> 2024.06.15</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+0h
+Review header details related changes done by dharati
+Password protected done and tested
+Authentication and authorsation is in progress
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3606a59" class="outline-3">
+<h3 id="org3606a59"><span class="section-number-3">1.15.</span> 16</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+0h
+Day off
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe2ee9d" class="outline-3">
+<h3 id="orgbe2ee9d"><span class="section-number-3">1.16.</span> 2024.06.17</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+2h log time on pmtool
+</p>
+<ul class="org-ul">
+<li>creaing refactor task: #1210
+<ul class="org-ul">
+<li>review header details component &amp; suggest changes: user value key instead dataKey</li>
+</ul></li>
+</ul>
+<p>
+1h Working on authorisation, having issue with session validation
+1h functional testing of authorisation
+cam build with multiple template
+</p>
+</div>
+</div>
+
+<div id="outline-container-org390b927" class="outline-3">
+<h3 id="org390b927"><span class="section-number-3">1.17.</span> 2024.06.18</h3>
+</div>
+<div id="outline-container-org2f276b2" class="outline-3">
+<h3 id="org2f276b2"><span class="section-number-3">1.18.</span> 2024.06.19</h3>
+</div>
+<div id="outline-container-orge27eeb7" class="outline-3">
+<h3 id="orge27eeb7"><span class="section-number-3">1.19.</span> 2024.06.20</h3>
+</div>
+
+<div id="outline-container-org2517593" class="outline-3">
+<h3 id="org2517593"><span class="section-number-3">1.20.</span> 2024.06.21</h3>
+</div>
+<div id="outline-container-orgbab6c3b" class="outline-3">
+<h3 id="orgbab6c3b"><span class="section-number-3">1.21.</span> 2024.06.22</h3>
+</div>
+
+<div id="outline-container-orgfdfec4a" class="outline-3">
+<h3 id="orgfdfec4a"><span class="section-number-3">1.22.</span> 2024.06.23</h3>
+</div>
+
+<div id="outline-container-org3c0458f" class="outline-3">
+<h3 id="org3c0458f"><span class="section-number-3">1.23.</span> 2024.06.24</h3>
+<div class="outline-text-3" id="text-1-23">
+<p>
+test build size of different frameworks for which one has smaller bundle
+199 test branch for testing ltv and lead validation
+rsa private key generation with openssl cli
+rsa public key generation based on private key with openssl cli
+rsa data encryption using pub and save in bytes
+convert bytes into base64 on cli
+convert data back into bytes from base64 before 
+stand up meeting
+pdf generator refinement related points
+reading git for understanding the revert of commits or merge
+deployment of lead validation on uat where you have branch reverted already
+tag creation, branch merging into develop
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org8d25943" class="outline-3">
+<h3 id="org8d25943"><span class="section-number-3">1.24.</span> 2024.06.25</h3>
+<div class="outline-text-3" id="text-1-24">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">TIME</th>
+<th scope="col" class="org-left">WORK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">1h</td>
+<td class="org-left">searching tool for login automation</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">found tool call imacros for automation forms</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">other tools like katalon recorder, sikulix, autoit</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">1h</td>
+<td class="org-left">wbs and pmtool for pdf generator</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">share in the folder for the sapna</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">compile the changes and create task and timeline</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2024-06-25 Tue 12:19</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-06-25 Tue 14:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git</title>
+<meta name="author" content="Nilesh Suthar" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style>:root {font-family: monospace !important; line-height:1.5;}
+code{padding: .2em .4em; margin: 0; font-size: 85%; white-space: break-spaces; background-color: var(--bgColor-neutral-muted, #6e768166); border-radius: 6px;} </style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Git</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga5910e2">1. Workflow</a>
+<ul>
+<li><a href="#org1ef31f8">1.1. UAT Deployment</a></li>
+<li><a href="#org6b8f700">1.2. Links</a></li>
+</ul>
+</li>
+<li><a href="#org2248a47">2. Linus explaining revert</a></li>
+<li><a href="#orgd5d17f6">3. Having multiple pre-releases</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgbd119eb">3.0.1. GitHub Releases and Tags</a></li>
+<li><a href="#org64d6e9f">3.0.2. Versioning Strategy</a></li>
+<li><a href="#org900175b">3.0.3. Practical Example</a></li>
+<li><a href="#org56b4967">3.0.4. Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga5910e2" class="outline-2">
+<h2 id="orga5910e2"><span class="section-number-2">1.</span> Workflow</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org1ef31f8" class="outline-3">
+<h3 id="org1ef31f8"><span class="section-number-3">1.1.</span> UAT Deployment</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Feature branch has been merged/reviewed into develop branch through the github Pull Request
+</p>
+
+<p>
+for UAT deployment the current develop branch will be merged into uat branch
+</p>
+
+<ol class="org-ol">
+<li><p>
+Create a release branch to start a deployment cylce
+</p>
+
+<p>
+1.1. Pull changes
+</p>
+<pre class="example">
+git pull upstream develop
+</pre>
+
+<p>
+1.2. Checkout to uat branch
+</p>
+<pre class="example">
+git checkout develop
+</pre>
+
+<p>
+1.3. Checkout to the newly created branch
+</p>
+<pre class="example">
+git checkout -b release/&lt;yyyy-mm-dd&gt;
+</pre></li>
+
+<li><p>
+Release-oriented tasks
+</p>
+
+<p>
+2.1. Building the source code
+</p>
+<pre class="example">
+npm run build
+</pre>
+<p>
+Above command is configured to create an optimized build of the source to be deployment on the cloud server.
+</p>
+
+<p>
+2.2. Bug fixes
+</p>
+<pre class="example">
+git add .
+git commit -m "fix some bugs"
+</pre>
+
+<p>
+2.3. Documentation generation
+</p>
+<pre class="example">
+vi path/to/feature/folder/README.md
+</pre>
+<p>
+You can add all the details about the code and it's working. All the functions, their parameters, and output You should example code blocks to show the intended usage. You can add warning and any known issues. This documentation is important for the next developer to continue where you left off.
+</p></li>
+
+<li><p>
+Once it's ready to ship, the release branch gets merged into uat and tagged with a version number.
+</p>
+
+<p>
+3.1. We create a tag with date (UAT should not have version and date of deployment should work)
+</p>
+<pre class="example">
+git tag release/&lt;yyyy-mm-dd&gt;
+git push --tags upstream
+</pre>
+
+<blockquote>
+<p>
+Once the release is ready to ship, it will get merged it into main and develop, then the release branch will be deleted. It’s important to merge back into develop because critical updates may have been added to the release branch and they need to be accessible to new features. If your organization stresses code review, this would be an ideal place for a pull request.
+</p>
+</blockquote>
+
+<p>
+3.2. In addition, it should be merged back into develop, which may have progressed since the release was initiated.
+</p>
+<pre class="example">
+git checkout uat
+git merge release/&lt;yyyy-mm-dd&gt;
+</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org6b8f700" class="outline-3">
+<h3 id="org6b8f700"><span class="section-number-3">1.2.</span> Links</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Git flow tutorial</a>
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org2248a47" class="outline-2">
+<h2 id="org2248a47"><span class="section-number-2">2.</span> Linus explaining revert</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt#L62-L78">https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt#L62-L78</a>
+</p>
+
+<blockquote>
+<p>
+Reverting a regular commit just effectively undoes what that commit
+did, and is fairly straightforward. But reverting a merge commit also
+undoes the <span class="underline">data</span> that the commit changed, but it does absolutely
+nothing to the effects on <span class="underline">history</span> that the merge had.
+</p>
+
+<p>
+So the merge will still exist, and it will still be seen as joining
+the two branches together, and future merges will see that merge as
+the last shared state - and the revert that reverted the merge brought
+in will not affect that at all.
+</p>
+
+<p>
+So a "revert" undoes the data changes, but it's very much <span class="underline">not</span> an
+"undo" in the sense that it doesn't undo the effects of a commit on
+the repository history.
+</p>
+
+<p>
+So if you think of "revert" as "undo", then you're going to always
+miss this part of reverts. Yes, it undoes the data, but no, it doesn't
+undo history.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgd5d17f6" class="outline-2">
+<h2 id="orgd5d17f6"><span class="section-number-2">3.</span> Having multiple pre-releases</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+In a Git repository, you can have multiple pre-release versions. Pre-release versions are typically used to mark releases that are not yet considered stable and are often used for testing purposes, such as alpha, beta, or release candidate (RC) versions. Having multiple pre-releases allows you to track different stages of development and testing before a final release.
+</p>
+</div>
+
+<div id="outline-container-orgbd119eb" class="outline-4">
+<h4 id="orgbd119eb"><span class="section-number-4">3.0.1.</span> GitHub Releases and Tags</h4>
+<div class="outline-text-4" id="text-3-0-1">
+<p>
+On platforms like GitHub, you can create multiple pre-release tags. When creating a release, you can mark it as a pre-release. Here's how it typically works:
+</p>
+
+<ol class="org-ol">
+<li><b><b>Tagging Versions</b></b>: Each pre-release version should have a unique tag. For example:
+<ul class="org-ul">
+<li><code>v1.0.0-alpha</code></li>
+<li><code>v1.0.0-beta</code></li>
+<li><code>v1.0.0-rc1</code></li>
+</ul></li>
+
+<li><b><b>Creating Pre-Releases</b></b>: When creating a release on GitHub, you can check the "This is a pre-release" checkbox. This will differentiate it from stable releases.</li>
+
+<li><b><b>Managing Multiple Pre-Releases</b></b>: You can have multiple pre-releases at the same time. For instance, you might have:
+<ul class="org-ul">
+<li>An alpha version for internal testing</li>
+<li>A beta version for a wider audience testing</li>
+<li>An RC version for final testing before the official release</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org64d6e9f" class="outline-4">
+<h4 id="org64d6e9f"><span class="section-number-4">3.0.2.</span> Versioning Strategy</h4>
+<div class="outline-text-4" id="text-3-0-2">
+<p>
+To manage multiple pre-releases, follow a consistent versioning strategy such as [Semantic Versioning (SemVer)](<a href="https://semver.org/">https://semver.org/</a>). According to SemVer, a pre-release version should have identifiers like <code>alpha</code>, `beta`, or `rc` along with a version number (e.g., `1.0.0-alpha.1`, `1.0.0-beta.2`, etc.).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org900175b" class="outline-4">
+<h4 id="org900175b"><span class="section-number-4">3.0.3.</span> Practical Example</h4>
+<div class="outline-text-4" id="text-3-0-3">
+<p>
+Suppose you are working on version 1.0.0 of your software. Your pre-release versions might look like this:
+</p>
+<ul class="org-ul">
+<li><code>v1.0.0-alpha.1</code>: First alpha release</li>
+<li><code>v1.0.0-alpha.2</code>: Second alpha release</li>
+<li><code>v1.0.0-beta.1</code>: First beta release</li>
+<li><code>v1.0.0-beta.2</code>: Second beta release</li>
+<li><code>v1.0.0-rc.1</code>: First release candidate</li>
+<li><code>v1.0.0-rc.2</code>: Second release candidate</li>
+</ul>
+
+<p>
+Each of these can be a separate pre-release in your repository.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org56b4967" class="outline-4">
+<h4 id="org56b4967"><span class="section-number-4">3.0.4.</span> Summary</h4>
+<div class="outline-text-4" id="text-3-0-4">
+<p>
+Yes, you can and often should have multiple pre-releases in your repository to represent different stages of testing and stabilization. Each pre-release should be uniquely tagged and managed consistently to ensure clarity and proper version tracking.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2024-06-07</p>
+<p class="author">Author: Nilesh Suthar</p>
+<p class="date">Created: 2024-06-25 Tue 14:02</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

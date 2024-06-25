@@ -1,0 +1,68 @@
+#+title:  Git Workflow Step-by-step Guide
+#+author: Nilesh Suthar
+#+date:   2024-06-07
+
+* Workflows
+** Deployment for UAT Environment
+
+Feature branch has been merged/reviewed into develop branch through the github Pull Request
+
+for UAT deployment the current develop branch will be merged into uat branch
+
+1. Create a release branch to start a deployment cylce
+
+   1.1. Pull changes
+   #+begin_src
+     git pull upstream develop
+   #+end_src
+
+   1.2. Checkout to uat branch
+   #+begin_src
+     git checkout develop
+   #+end_src
+
+   1.3. Checkout to the newly created branch
+   #+begin_src
+   git checkout -b release/<yyyy-mm-dd>
+   #+end_src
+
+2. Release-oriented tasks
+
+   2.1. Building the source code
+   #+begin_src
+     npm run build
+   #+end_src
+   Above command is configured to create an optimized build of the source to be deployment on the cloud server.
+
+   2.2. Bug fixes
+   #+begin_src
+     git add .
+     git commit -m "fix some bugs"
+   #+end_src
+
+   2.3. Documentation generation
+   #+begin_src
+     vi path/to/feature/folder/README.md
+   #+end_src
+   You can add all the details about the code and it's working. All the functions, their parameters, and output You should example code blocks to show the intended usage. You can add warning and any known issues. This documentation is important for the next developer to continue where you left off.
+
+3. Once it's ready to ship, the release branch gets merged into uat and tagged with a version number.
+
+    3.1. We create a tag with date (UAT should not have version and date of deployment should work)
+    #+begin_src
+      git tag release/<yyyy-mm-dd>
+      git push --tags upstream
+    #+end_src
+
+    #+begin_quote
+    Once the release is ready to ship, it will get merged it into main and develop, then the release branch will be deleted. It’s important to merge back into develop because critical updates may have been added to the release branch and they need to be accessible to new features. If your organization stresses code review, this would be an ideal place for a pull request.
+    #+end_quote
+
+    3.2. In addition, it should be merged back into develop, which may have progressed since the release was initiated.
+    #+begin_src
+      git checkout uat
+      git merge release/<yyyy-mm-dd>
+    #+end_src
+
+** Links
+[[https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow][Git flow tutorial]]

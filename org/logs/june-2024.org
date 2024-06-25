@@ -1,0 +1,153 @@
+* June 2024
+
+** 2024.06.01
+10h
+QMS UI
+  Heavy refactoring of Styling
+  Sizing of query description and their time
+  Sizing of comment and their time
+  Spacing of each list item
+  Appbar and refetch button
+QMS State
+  Fetching all queries in 5 seconds interval
+QMS API Testing
+  Default order of queries list
+  Default order of comment list
+
+
+** 2024.06.02
+0
+Day Off
+
+** 2024.06.03
+5h
+Deployment QMS on UAT
+  Pull Request
+  Code review
+Lead Validation Error UI Design
+  Discussion with Jugal sir
+  Component design for group of errors
+Research - PDF creation tools (DocRaptor)
+  Generate API
+
+** 2024.06.04
+7h
+CAM Letter - Template Creation in html
+
+** 2024.06.05
+7h
+Micro App - PDF Generator
+  weasyprint (html to pdf)
+  html templating (Flask->Jinja)
+
+** 2024.06.06
+0h
+Micro App - PDF Generator
+  generate API to render pdf using json data based on template
+  test scripts to check section & paragraph in PDF
+  test scripts to check table in PDF
+
+** 2024.06.07
+0h
+Micro App - PDF Generator
+  upload API for template to be dynamic
+  test scripts to pass custom css in json payload of generate api
+
+** 2024.06.08
+0h
+Day Off
+
+** 2024.06.09
+0h
+Day Off
+
+** 2024.06.10
+7.52 hours
+Deployment DOP on UAT (with dharati)
+  Pull Request
+  Code Review of DOP
+  Note changes for Future Refactoring
+Online meeting with KS - discuss points from mail.
+Research: Password-protection, how? (unlogged)
+  Which packages to use?
+  What's the algorithm using pypdf2?
+
+** 2024.06.11
+7h
+Deployment on Production
+version->3.06.10.1
+git-related
+  Pull Request
+  Code Review of QMS/DOP
+  Code cleanup
+  Merge code and build code
+  Deploy on server
+
+** 2024.06.12
+7.54 hours
+1h Brainstorm steps
+0.5h Create new Issue: #2037
+  branch: 2037-common-header-details
+0.5h Time log
+4h password protected pdf generate - researching methods
+2h testing templates with password
+
+** 2024.06.13 - 2024.06.14
+0h
+On leave, out of station
+
+** 2024.06.15
+0h
+Review header details related changes done by dharati
+Password protected done and tested
+Authentication and authorsation is in progress
+
+** 16
+0h
+Day off
+
+** 2024.06.17
+
+2h log time on pmtool
+  - creaing refactor task: #1210
+    - review header details component & suggest changes: user value key instead dataKey
+1h Working on authorisation, having issue with session validation
+1h functional testing of authorisation
+cam build with multiple template
+
+** 2024.06.18
+** 2024.06.19
+** 2024.06.20
+
+** 2024.06.21
+** 2024.06.22
+
+** 2024.06.23
+
+** 2024.06.24
+test build size of different frameworks for which one has smaller bundle
+199 test branch for testing ltv and lead validation
+rsa private key generation with openssl cli
+rsa public key generation based on private key with openssl cli
+rsa data encryption using pub and save in bytes
+convert bytes into base64 on cli
+convert data back into bytes from base64 before 
+stand up meeting
+pdf generator refinement related points
+reading git for understanding the revert of commits or merge
+deployment of lead validation on uat where you have branch reverted already
+tag creation, branch merging into develop
+
+
+** 2024.06.25
+| TIME | WORK                                               |
+|------+----------------------------------------------------|
+| 1h   | searching tool for login automation                |
+|      | found tool call imacros for automation forms       |
+|      | other tools like katalon recorder, sikulix, autoit |
+|------+----------------------------------------------------|
+| 1h   | wbs and pmtool for pdf generator                   |
+|      | share in the folder for the sapna                  |
+|      | compile the changes and create task and timeline   |
+|      |                                                    |
+

@@ -1,0 +1,132 @@
+#+HTML_HEAD_EXTRA: <style>:root {font-family: monospace !important; line-height:1.5;}
+#+HTML_HEAD_EXTRA: code{padding: .2em .4em; margin: 0; font-size: 85%; white-space: break-spaces; background-color: var(--bgColor-neutral-muted, #6e768166); border-radius: 6px;} </style>
+
+#+SETUPFILE: ~/.emacs.d/org-templates/level-0.or
+#+title:  Git
+#+author: Nilesh Suthar
+#+date:   2024-06-07
+
+* Workflow
+** UAT Deployment
+
+Feature branch has been merged/reviewed into develop branch through the github Pull Request
+
+for UAT deployment the current develop branch will be merged into uat branch
+
+1. Create a release branch to start a deployment cylce
+
+   1.1. Pull changes
+   #+begin_src
+     git pull upstream develop
+   #+end_src
+
+   1.2. Checkout to uat branch
+   #+begin_src
+     git checkout develop
+   #+end_src
+
+   1.3. Checkout to the newly created branch
+   #+begin_src
+   git checkout -b release/<yyyy-mm-dd>
+   #+end_src
+
+2. Release-oriented tasks
+
+   2.1. Building the source code
+   #+begin_src
+     npm run build
+   #+end_src
+   Above command is configured to create an optimized build of the source to be deployment on the cloud server.
+
+   2.2. Bug fixes
+   #+begin_src
+     git add .
+     git commit -m "fix some bugs"
+   #+end_src
+
+   2.3. Documentation generation
+   #+begin_src
+     vi path/to/feature/folder/README.md
+   #+end_src
+   You can add all the details about the code and it's working. All the functions, their parameters, and output You should example code blocks to show the intended usage. You can add warning and any known issues. This documentation is important for the next developer to continue where you left off.
+
+3. Once it's ready to ship, the release branch gets merged into uat and tagged with a version number.
+
+    3.1. We create a tag with date (UAT should not have version and date of deployment should work)
+    #+begin_src
+      git tag release/<yyyy-mm-dd>
+      git push --tags upstream
+    #+end_src
+
+    #+begin_quote
+    Once the release is ready to ship, it will get merged it into main and develop, then the release branch will be deleted. It’s important to merge back into develop because critical updates may have been added to the release branch and they need to be accessible to new features. If your organization stresses code review, this would be an ideal place for a pull request.
+    #+end_quote
+
+    3.2. In addition, it should be merged back into develop, which may have progressed since the release was initiated.
+    #+begin_src
+      git checkout uat
+      git merge release/<yyyy-mm-dd>
+    #+end_src
+
+** Links
+[[https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow][Git flow tutorial]]
+
+
+
+* Linus explaining revert
+https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt#L62-L78
+
+#+begin_quote
+    Reverting a regular commit just effectively undoes what that commit
+    did, and is fairly straightforward. But reverting a merge commit also
+    undoes the _data_ that the commit changed, but it does absolutely
+    nothing to the effects on _history_ that the merge had.
+
+    So the merge will still exist, and it will still be seen as joining
+    the two branches together, and future merges will see that merge as
+    the last shared state - and the revert that reverted the merge brought
+    in will not affect that at all.
+
+    So a "revert" undoes the data changes, but it's very much _not_ an
+    "undo" in the sense that it doesn't undo the effects of a commit on
+    the repository history.
+
+    So if you think of "revert" as "undo", then you're going to always
+    miss this part of reverts. Yes, it undoes the data, but no, it doesn't
+    undo history.
+#+end_quote
+
+* Having multiple pre-releases
+In a Git repository, you can have multiple pre-release versions. Pre-release versions are typically used to mark releases that are not yet considered stable and are often used for testing purposes, such as alpha, beta, or release candidate (RC) versions. Having multiple pre-releases allows you to track different stages of development and testing before a final release.
+
+*** GitHub Releases and Tags
+On platforms like GitHub, you can create multiple pre-release tags. When creating a release, you can mark it as a pre-release. Here's how it typically works:
+
+1. **Tagging Versions**: Each pre-release version should have a unique tag. For example:
+   - ~v1.0.0-alpha~
+   - ~v1.0.0-beta~
+   - ~v1.0.0-rc1~
+
+2. **Creating Pre-Releases**: When creating a release on GitHub, you can check the "This is a pre-release" checkbox. This will differentiate it from stable releases.
+
+3. **Managing Multiple Pre-Releases**: You can have multiple pre-releases at the same time. For instance, you might have:
+   - An alpha version for internal testing
+   - A beta version for a wider audience testing
+   - An RC version for final testing before the official release
+
+*** Versioning Strategy
+To manage multiple pre-releases, follow a consistent versioning strategy such as [Semantic Versioning (SemVer)](https://semver.org/). According to SemVer, a pre-release version should have identifiers like ~alpha~, `beta`, or `rc` along with a version number (e.g., `1.0.0-alpha.1`, `1.0.0-beta.2`, etc.).
+
+*** Practical Example
+Suppose you are working on version 1.0.0 of your software. Your pre-release versions might look like this:
+- ~v1.0.0-alpha.1~: First alpha release
+- ~v1.0.0-alpha.2~: Second alpha release
+- ~v1.0.0-beta.1~: First beta release
+- ~v1.0.0-beta.2~: Second beta release
+- ~v1.0.0-rc.1~: First release candidate
+- =v1.0.0-rc.2=: Second release candidate
+
+Each of these can be a separate pre-release in your repository.
+
+*** Summary
+Yes, you can and often should have multiple pre-releases in your repository to represent different stages of testing and stabilization. Each pre-release should be uniquely tagged and managed consistently to ensure clarity and proper version tracking.
