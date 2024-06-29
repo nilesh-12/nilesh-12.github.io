@@ -3,9 +3,7 @@
 #+date:   2024-06-07
 
 * Workflows
-** Deployment for UAT Environment
-
-Feature branch has been merged/reviewed into develop branch through the github Pull Request
+** Deployment for UAT Environme
 
 for UAT deployment the current develop branch will be merged into uat branch
 

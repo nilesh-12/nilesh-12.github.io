@@ -1,0 +1,19 @@
+
+Update 2024-06-26
+Starting with:
+  I have take care of the unfinished code etc before I can take on the task of documentation and writing automated tests. 
+points to clear:
+1. User restricted templates.
+2. Encryption request data and response then test the cam print
+
+Update  2024-06-27
+working on template user restricted
+Meething: system design for d2c micro app
+
+Update 2024-06-28
+working on writing test cases
+
+Update 2024-06-29
+2 Factor Authentication
+API integration - login.
+State management - basic flow with panel.
