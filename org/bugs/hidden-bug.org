@@ -1,0 +1,74 @@
+* A bug hidden to naked eye
+
+** code examples
+
+#+begin_src javascript
+
+#+end_src
+
+
+
+
+#+begin_src javascript
+[
+    "00",
+    "BONADA",
+    "VAKTANA",
+    "KANAKPUR",
+    "SACHIN",
+    "BHANODRA",
+    "KANSAD",
+    "LINGAD",
+    "PARDI KANADE",
+    "TALANGPOR",
+    "GABHENI",
+    "VEKTANA",
+    "VANZ",
+    "BONANDH",
+    "SACHIN R.S.",
+    "UMBER",
+    "EKLERA",
+    "SACHIN G.I.D.C.",
+    "TALANGPUR"
+].includes("SACHIN G.I.D.C.")
+// outputs: false
+#+end_src
+
+
+
+
+#+begin_src javascript
+[
+    "00",
+    "BONADA",
+    "VAKTANA",
+    "KANAKPUR",
+    "SACHIN",
+    "BHANODRA",
+    "KANSAD",
+    "LINGAD",
+    "PARDI KANADE",
+    "TALANGPOR",
+    "GABHENI",
+    "VEKTANA",
+    "VANZ",
+    "BONANDH",
+    "SACHIN R.S.",
+    "UMBER",
+    "EKLERA",
+    "SACHIN G.I.D.C.",
+    "TALANGPUR"
+][17].charCodeAt("SACHIN".length)
+// outputs: 160
+#+end_src
+
+
+** Explanation
+The difference between a normal (breaking) space and a non-breaking space is that text display and typesetting software should not insert an automatic line break in place of a non-breaking space. (It is as if the non-breaking space joins the words before and after it into an unsplittable word.) By contrast, a regular space is treated as a possible place to break a line.
+
+Having said that, the code 160 is actually outside of the range of regular (7-bit) ASCII. The interpretation of 160 as a non-breaking space (or NBSP) character comes from the Latin1 (ISO8859-1) character set. (In Extended ASCII, the code for the NBSP character is 255!)
+
+
+#+begin_src javascript
+#+end_src
+
